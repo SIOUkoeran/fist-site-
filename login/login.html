@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .login_frame {
+
+            width: 800px;
+            height: 420px;
+            border: solid 2px gray;
+            border-radius: 2px;
+            top: 21%;
+            left: 24%;
+            position: absolute;
+        }
+
+        h1 {
+            text-align: center;
+            top: 10px;
+            position: relative;
+            color: indigo;
+            font-size: 55px;
+        }
+
+        #login_id,
+        #login_pwd {
+            box-sizing: 100px;
+            margin-bottom: 10px;
+            width: 300px;
+            height: 50px;
+            margin-bottom: 20px;
+            position: relative;
+            top: 60px;
+            border: solid 1.5px;
+        }
+
+        .label_id {
+            font-size: 20px;
+            margin-left: 160px;
+            margin-right: 25px;
+            top: 60px;
+            position: relative;
+        }
+
+        .label_pwd {
+            font-size: 20px;
+            margin-left: 160px;
+            margin-right: 5px;
+            top: 60px;
+            position: relative;
+
+        }
+
+        #login_btn {
+            float: right;
+            margin-right: 110px;
+            margin-top: -90px;
+            background-color: lightblue;
+            border-radius: 5px;
+            font-size: 20px;
+            padding: 50px 20px;
+        }
+
+        #signUp_btn {
+            margin-top: 60px;
+            padding: 4px 10px;
+            background-color: white;
+        }
+
+        #guest_btn {
+            top: -30px;
+            position: relative;
+            padding: 4px 14px;
+            background-color: white;
+            font-size: 16px;
+        }
+    </style>
+</head>
+
+<body>
+    <wrap>
+        <div class=login_frame>
+            <h1>agora</h1>
+
+
+            <div class="input">
+                <form action="/user/login" method="post">
+                <div class="id">
+                    
+                        <label for="login_id" class="label_id">아이디</label>
+                        <input type="text" id="login_id" name="login_id"><br />
+                    
+                </div>
+
+                <div class="pwd">
+                    <label for="login_pwd" class="label_pwd">패스워드</label>
+                    <input type="password" id="login_pwd" name="login_pwd"><br />
+                </div>
+                <div class="login_button">
+                    <input type="submit" class="login_send" id="login_btn" name="login_send" value="로그인">
+                </div>
+                </form>
+            </div>
+
+
+           
+           
+            <div class="sign_up" style="text-align:center;">
+
+                <input type="button" value="회원가입" id="signUp_btn" onclick="sign_up()" />
+
+            </div>
+            <script>
+                function sign_up() {
+                    location.href = "user/signUp/form"
+                }
+            </script>
+            <div class="guest" style="text-align:center">
+                <input type="button" value="guest" id="guest_btn" onclick="guest()" />
+            </div>
+            <script>
+                function guest() {
+                    location.href = "/main/guest"
+                }
+            </script>
+            
+
+
+           <script>
+                
+         /*      function login_send(url, data) {
+                    var data = { 'id':data.id , 'pwd' : data.pwd};
+                    var xhr = new XMLHttpRequest();
+                    xhr.open('POST', url);
+                    xhr.setRequestHeader('Content-Type', "application/json");
+                    xhr.send(data);
+
+                    xhr.addEventListener('load', function () {
+                        var result=xhr.responseText;
+                        if (result.result !== "ok")
+                            return;
+                        document.querySelector(".result").innerHTML = result.id;
+                    });
+                }
+                document.querySelector('.login_send').addEventListener('click', function () {
+                    var inputdata = document.forms[0].elements[0].value
+                    login_send('http://localhost:3000/user/login', inputdata);
+                }) */
+
+
+
+
+            </script>
+
+
+
+
+
+
+
+        </div>
+    </wrap>
+
+
+
+</body>
+
+</html>

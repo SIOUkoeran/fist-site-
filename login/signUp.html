@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title></title>
+        <link rel="stylesheet" href="style.css">
+        <style>
+          
+            .login_frame{
+                
+                width : 800px;
+                height: 400px;
+                border :solid 2px gray;
+                border-radius : 2px;
+                top : 10%; left : 20%;
+                position : absolute;
+            }
+            h1{
+                text-align: center;
+                top:10px;
+                position: relative;
+               
+            }
+            #signUp_id, #signUp_pwd, #signUp_name{
+                box-sizing : 100px;
+                margin-bottom:10px;
+                width : 300px;
+                height:50px;
+                margin-bottom: 20px;
+                position: relative;
+                top:60px;
+                
+                border : solid 0.8px gray;
+            }
+            .label_id{
+                    font-size:20px;
+                    margin-left: 160px;
+                    margin-right: 25px;
+                    top:60px;
+                    position: relative;
+            }
+            .label_pwd{
+                    font-size:20px;
+                    margin-left: 160px;
+                    margin-right: 5px;
+                    top:60px;
+                    position: relative;
+                    
+            }
+            .label_name{
+                    font-size:20px;
+                    margin-left: 160px;
+                    margin-right: 45px;
+                    top:60px;
+                    position: relative;
+                    
+            }
+            #signup_send{
+                    float : right;
+                    position: relative;
+                    margin-right: 175px;
+                    margin-top : -13.5px;
+                    padding : 13.5px 15px;
+                    font-size : 20px;
+                    background-color: yellowgreen;
+                    border-radius: 0px 10px 10px 0px;
+                    border : solid 0px
+            }
+            #idCheck{
+                float : right;
+                    position: relative;
+                    margin-right: -70px;
+                    margin-top : -160.5px;
+                    padding : 13.5px 15px;
+                    font-size : 20px;
+                    background-color: yellowgreen;
+                    border-radius: 0px 10px 10px 0px;
+                    border : solid 0px
+            }
+
+        </style>
+    </head>
+    <body>
+       <wrap>
+           <div class = login_frame>
+               <h1>회원가입</h1>
+               
+                <div class="input">
+                    <form action="/user/signUp" method='POST'>
+                    <div class="id">
+                      
+                    <label for="signUp_id" class="label_id">아이디</label>
+                    <input type="text" id="signUp_id" name = "signUp_id"><br/>
+                    
+                    </div>
+                    
+                    <div class="pwd">
+                    <label for="signUp_pwd" class="label_pwd">패스워드</label>
+                    <input type="text" id="signUp_pwd" name="signUp_pwd"><br/>
+                    </div>
+
+                    <div>
+                        <div class="name">
+                            <label for="signUp_name" class="label_name">이름</label>
+                            <input type="text" id="signUp_name" name="signUp_name"><br/>
+                    </div>
+                </div>
+                
+                
+                    <div class="login_button">
+                    <input type="submit" class= "sign_up_send" id="signup_send"value="완료">
+                    </div>
+                </form>
+                </div>
+                    
+                 
+
+                    <script>
+                        
+                      
+                 </script>
+                   
+                
+                 
+                <div calss="sign_up">
+
+                </div>
+
+
+                
+                
+           </div>
+       </wrap>
+
+        
+        
+    </body>
+</html>

@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>notice board</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+    <style>
+</style>
+</head>
+
+  <body>
+    <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+
+        <a class="navbar-brand text-info "style=font-size:30px href="#">agora</a>
+       
+        <div class="collapse navbar-collapse">
+      
+          <ul class="navbar-nav mr-auto">
+      
+            <li class="nav-item active">
+      
+              <a class="nav-link" href="#">Home </a>
+      
+            </li>
+      
+            <li class="nav-item">
+      
+              <a class="nav-link" href="/board/list">board</a>
+      
+            </li>
+      
+            <li class="nav-item">
+      
+              <a class="nav-link" href='/user/mypage'>my page</a>
+      
+            </li>
+
+          </ul>
+        </div>
+      
+      </nav>
+      
+      
+      
+
+    <div class="container">
+    <table class = "table table-hover">
+        <thead>
+            <tr>
+                <td width = "10%">번호</td>
+                <td width = "70%"><a href="/board/post"></a>주제</td>
+                <td width = "10%">작성자</td>
+                
+                <td width = "10%">조회수</td>
+                
+            </tr>
+        </thead>
+        <tbody>
+          <% data.forEach(function(item,index){ %>
+
+            <tr>
+              <a href ='/board/post/<%=item.title%>'>
+            <td><a href =><%= item.board_num%>        </a></td>
+            <td><a href ='/board/post/<%=item.board_num%>' ><%= item.title%>        </a></td>
+            <td><a href = ></a><%=item.writer%></a></td>
+        
+            <td><a href = ></a><%=item.hits%></a></td>
+          </a>  
+          </tr>
+
+            <% })%>
+        </tbody>
+
+
+        <%
+        let page = pasing.page
+        let page_list_size = pasing.page_list_size
+        let page_size = pasing.page_size
+        let total_page = pasing.total_page
+        let total_set = pasing.total_set
+        let cur_set = pasing.cur_set
+        let start = pasing.start
+        let end = pasing.end
+        %>
+       
+    </table>
+ 
+    <a class="btn btn-primary"   href='/board/write'>글쓰기</a> 
+    
+    <div class="pagination justify-content-center">
+        <ul class="pagination">
+          <%
+            if(cur_set > 1){
+              %>
+            
+            <li class="page-item" value=(start-1)><a class="page-link" href ='/board/page/<%= ( start - 1) %>'>Previous</a></li>
+           <%
+            }
+            %>
+
+
+            <%
+            for(var i = start; i<=end; i++){
+              if(i > total_page) {break;}
+              
+            if(i==page){
+            %>
+            <li class ="page-item" value = <%=i%> ><a class="page-link" href='/board/page/<%= i %>'><%=i%></a></li>
+            
+              <%
+              
+            }else{
+              %>
+              <li  class="page-item"  value = <%=i%> ><a class="page-link" href="/board/page/<%= i %>"><%=i%></a></li>
+              <%
+            }
+              %>
+            <%
+          }
+          %>
+              <%
+              if(cur_set < total_set){
+                %>
+            <li class="page-item" value=(end+1)><a class="page-link" href="/board/page/<%= ( end+1) %>">Next</a></li>
+              <%
+              }
+              %>
+        </ul>
+    </div>
+
+    </div>
+   
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+  
+  </body>
+</html>

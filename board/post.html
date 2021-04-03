@@ -1,0 +1,157 @@
+<html>
+
+<head>
+
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css"
+    integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <style>
+    #content{
+      background-color: white;
+      height: 800px;
+      width : 100%;
+      font-size : 30px;
+    }
+    #title{
+      padding : 2px;
+      background-color: whitesmoke;
+      
+    }
+    #writer{
+      text-align:right ;
+      margin : 2px;
+    }
+    #comment{
+      font-size : 15px;
+      padding : em;
+      display: inline;
+      position : static;
+     
+      
+    }
+    #comment_button{
+      display : inline;
+      padding : 1em;
+      position : relative;
+      top : -1.6em;
+    }
+
+    #comment_ctn{
+      padding : 1em;
+      border-radius: 10px;
+      background-color:whitesmoke;
+      
+
+    }
+  </style>
+  </head>
+
+<body>
+
+  <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
+
+    <a class="navbar-brand text-info " style=font-size:30px href="/board/list">agora</a>
+
+    <div class="collapse navbar-collapse">
+
+      <ul class="navbar-nav mr-auto">
+
+        <li class="nav-item active">
+
+          <a class="nav-link" href="/board/page/1">Home </a>
+
+        </li>
+
+        <li class="nav-item">
+
+          <a class="nav-link" href="#">board</a>
+
+        </li>
+
+        <li class="nav-item">
+
+          <a class="nav-link" href="#">my page</a>
+
+        </li>
+
+      </ul>
+    </div>
+
+  </nav>
+  </br>
+  <%
+  cnt =comment_cnt.cnt
+  %>
+  
+    <% data.forEach(function(item,index){ %>
+      <div class="container" id="center">
+      </br>
+        
+          
+          <h1 class="border" id="title" style="width:100%"><%=item.title%></h1>
+          
+          <p class="border border-white" id="writer" style="padding-top: 0.4em">
+          작성자 : <%=item.writer%>
+          </p>
+          <hr>
+          <p class="border border-white" id="content" style = "height : 50%">
+            <%=item.content%> 
+          </p>
+          <hr>
+         
+          <div class="border" id = "comment_ctn">
+           댓글 :  <%=cnt%>개
+
+          </div>
+          <% comment.forEach(function(com,index1){%>
+            
+              <table class="table" id="comment_box">
+            <tr>
+              <td>작성자 : <%=com.comment_writer%></td></tr></br>
+              <td><%=com.comment_content%></td>
+            </tr>
+              <hr>
+              </table>
+            
+          </table>
+            <% })%>
+        </br>
+          <form action="/board/comment/<%=item.board_num%>" method="post">
+          <div class="" id = "comment">
+            <textarea class="form-control col-sm-7" id="comment" name='comment' placeholder="댓글쓰기"></textarea>
+            <button type="submit" a class="btn btn-primary" id = "comment_button">입력</button> 
+            
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="agree">
+              <label class="form-check-label" for="inlineFormCheck">
+                  agree
+              </label>
+          
+          </div>
+            
+            <div class="form-check form-check-inline">
+              <input class="form-check-input" type="checkbox" id="disagree">
+              <label class="form-check-label" for="inlineFormCheck">
+                disagree
+              </label>
+          
+            </div>
+
+          </div>
+        </form>
+      </div>
+      
+      <% })%>
+     
+       
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"
+    integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"
+    integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
